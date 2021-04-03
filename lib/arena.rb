@@ -11,10 +11,8 @@ class Arena
   def is_a_valid_location?(location)
     if location.x > @top_right_corner.x
       false
-    elsif location.y > @top_right_corner.y
-      false
     else
-      true
+      !(location.y > @top_right_corner.y)
     end
   end
 

@@ -8,8 +8,7 @@ class Location
     @y = y
   end
 
-
   def check_value(value)
     raise 'Negative value' if value < 0
-  end 
+  end
 end
