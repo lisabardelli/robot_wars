@@ -1,5 +1,8 @@
 require_relative './arena'
-require_relative './location'
+require_relative './location' 
+require_relative './robot' 
+
+
 
 def print_header
   puts '----- Robot Wars -----'
@@ -21,7 +24,17 @@ def build_arena
   arena
 end
 
+def build_robot
+    puts 'Please enter the coordinates and the direction of the position of the Robot'
+    input_robot_position = gets.chomp
+        robot = Robot.new(input_robot_position)
+    return robot
+end 
+
+
 print_header
 arena = build_arena
+robot = build_robot
 puts
 puts "ARENA COORDINATES: (#{arena.bottom_left_corner.x};#{arena.bottom_left_corner.y})-(#{arena.top_right_corner.x};#{arena.top_right_corner.y})"
+puts "ROBOT: (#{robot.current_location.x} #{robot.current_location.y} #{robot.current_direction})"
