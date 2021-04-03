@@ -83,4 +83,51 @@ class Robot
     future_direction = calculated_future_direction
     @current_direction = future_direction
   end
+
+  def move
+
+       case @current_direction
+       when "N"
+           future_location = increase_y()
+       when "E"
+           future_location = increase_x()
+       when "S"
+           begin
+               future_location = decrease_y()
+           rescue
+               puts "The robot did not move because next to the bottom border"
+               return
+           end
+       when "W"
+           begin
+               future_location = decrease_x()
+           rescue
+               puts "The robot did not move because next to the left border"
+               return
+           end
+       end
+       
+       if @arena.is_a_valid_location?(future_location)
+           @current_location = future_location
+       else
+           puts "The robot did not move"
+       end
+   end
+
+   def increase_y
+       future_location = Location.new(@current_location.x, @current_location.y + 1)
+   end
+
+   def increase_x
+       future_location = Location.new(@current_location.x + 1, @current_location.y)
+   end
+
+   def decrease_y
+       future_location = Location.new(@current_location.x, @current_location.y - 1)
+   end
+
+   def decrease_x
+       future_location = Location.new(@current_location.x - 1, @current_location.y)
+   end
+
 end
