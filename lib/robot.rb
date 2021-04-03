@@ -63,9 +63,7 @@ class Robot
             "S" => "W",
             "W" => "N"
         }
-        calculated_future_direction = future_directions[@current_direction]
-        future_direction = calculated_future_direction
-        @current_direction = future_direction
+        rotate(future_directions)
     end
     def rotate_left
         future_directions = {
@@ -75,6 +73,9 @@ class Robot
             "W" => "S"
         }
 
+        rotate(future_directions)
+    end
+    def rotate(future_directions)
         calculated_future_direction = future_directions[@current_direction]
         future_direction = calculated_future_direction
         @current_direction = future_direction
