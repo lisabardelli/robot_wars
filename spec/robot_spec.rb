@@ -61,6 +61,4 @@ describe 'Robot' do
     expect(robot.current_location.y).to eq 1
     expect(robot.current_direction).to eq 'W'
   end
-
-
 end
