@@ -9,6 +9,7 @@ class Robot
     def initialize(initial_robot_position, instructions="", arena)
         @arena = arena
         calculate_initial_position(initial_robot_position)
+        calculate_final_position(instructions)
     end
 
 
@@ -30,6 +31,15 @@ class Robot
 
         raise 'Invalid direction' unless is_a_valid_direction?(initial_robot_position_array[2])
         @current_direction = initial_robot_position_array[2].capitalize
+    end
+    
+    def calculate_final_position(instructions)
+        valid_instruction_set = Set['L', 'M', 'R']
+        instruction_array = instructions.split("")
+        instruction_array.each do |instruction|
+        instruction = instruction.capitalize
+        raise 'Invalid instruction' if !valid_instruction_set.include?(instruction)
+        end 
     end
 
 end 

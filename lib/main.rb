@@ -25,13 +25,15 @@ def build_arena
 end
 
 def build_robot(arena)
-    robot_position_created = false
-    until robot_position_created
+    robot_created = false
+    until robot_created
     puts 'Please enter the coordinates and the direction of the position of the Robot'
     input_robot_position = gets.chomp
+    puts 'Please enter the instructions for the Robot'
+    input_instructions = gets.chomp
     begin
-        robot = Robot.new(input_robot_position, arena)
-        robot_position_created = true
+        robot = Robot.new(input_robot_position, input_instructions, arena)
+        robot_created = true
     rescue StandardError => e
         puts e
       end

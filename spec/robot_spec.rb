@@ -22,4 +22,8 @@ describe "Robot" do
     it "returns an error if inputs are outside the arena" do
         expect { Robot.new("8 9 N", @arena)}.to raise_error 'Invalid location (outside the arena)'
     end 
+
+    it "returns an error if instruction are not valida" do
+        expect { Robot.new("1 2 N", "LOREM", @arena)}.to raise_error 'Invalid instruction'
+    end 
 end 
