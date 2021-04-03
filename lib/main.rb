@@ -24,4 +24,4 @@ end
 print_header
 arena = build_arena
 puts
-puts "ARENA TOP RIGHT CORNER: (#{arena.top_right_corner.x};#{arena.top_right_corner.y})"
+puts "ARENA COORDINATES: (#{arena.bottom_left_corner.x};#{arena.bottom_left_corner.y})-(#{arena.top_right_corner.x};#{arena.top_right_corner.y})"

@@ -1,10 +1,11 @@
 require_relative './location'
 require_relative './string'
 class Arena
-  attr_reader :top_right_corner
+  attr_reader :top_right_corner, :bottom_left_corner
 
   def initialize(top_right_corner)
     @top_right_corner = validate_input(top_right_corner)
+    @bottom_left_corner = Location.new(0, 0)
   end
 
   private
