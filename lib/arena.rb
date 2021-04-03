@@ -22,8 +22,8 @@ class Arena
     begin
       x = input_array[0]
       y = input_array[1]
-      raise 'Invalid value' unless x.is_a_positive_integer?
-      raise 'Invalid value' unless y.is_a_positive_integer?
+      raise 'Invalid value' unless x.is_a_non_negative_integer?
+      raise 'Invalid value' unless y.is_a_non_negative_integer?
 
       @top_right_corner = Location.new(x.to_i, y.to_i)
     rescue StandardError => e
