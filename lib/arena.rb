@@ -15,6 +15,9 @@ class Arena
 
   def populate_top_right_corner(input)
     input_array = input.split(' ')
+
+    raise 'Too few arguments for Arena' if input_array.length < 2
+    
       x = input_array[0]
       y = input_array[1]
       @top_right_corner = Location.new(x.to_i, y.to_i) 

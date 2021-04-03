@@ -24,4 +24,8 @@ describe "Arena" do
         expect(@arena.top_right_corner.y).to eq 5
     end 
 
+    it "returns an error if the input length is less than 2" do
+        expect{@arena.populate_top_right_corner("5")}.to raise_error 'Too few arguments for Arena'
+    end 
+
 end 
