@@ -7,8 +7,7 @@ class Arena
     @top_right_corner = validate_input(top_right_corner)
   end
 
-
-  private 
+  private
 
   def is_input_a_string?(input)
     raise 'Arena input must be a string' unless input.is_a? String
