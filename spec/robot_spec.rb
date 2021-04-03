@@ -22,4 +22,22 @@ describe 'Robot' do
   it 'returns an error if instruction are not valida' do
     expect { Robot.new('1 2 N', 'LOREM', @arena) }.to raise_error 'Invalid instruction'
   end
+
+  it 'rotates twice to the left' do
+    robot = Robot.new('1 2 N', "LL", @arena)
+    expect(robot.current_direction).to eq 'S'
+  end 
+  it 'rotates twice to the right' do
+    robot = Robot.new('1 2 N', "RR", @arena)
+    expect(robot.current_direction).to eq 'S'
+  end 
+
+  it 'rotates twice to the left and then to the right' do
+    robot = Robot.new('1 2 N', "LLR", @arena)
+    expect(robot.current_direction).to eq 'W'
+  end 
+  it 'rotates twice to the right and then to the left' do
+    robot = Robot.new('1 2 N', "RRL", @arena)
+    expect(robot.current_direction).to eq 'E'
+  end
 end

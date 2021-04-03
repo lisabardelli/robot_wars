@@ -41,6 +41,46 @@ class Robot
     instruction_array.each do |instruction|
       instruction = instruction.capitalize
       raise 'Invalid instruction' unless valid_instruction_set.include?(instruction)
+      process_instruction(instruction)
     end
   end
+
+  def process_instruction(instruction)
+        case instruction
+        when "M"
+            move()
+        when "L"
+            rotate_left()
+        when "R"
+            rotate_right()
+        end
+    end
+
+    def rotate_right
+        future_directions = {
+            "N" => "E",
+            "E" => "S",
+            "S" => "W",
+            "W" => "N"
+        }
+        calculated_future_direction = future_directions[@current_direction]
+        future_direction = calculated_future_direction
+        @current_direction = future_direction
+    end
+    def rotate_left
+        future_directions = {
+            "N" => "W",
+            "E" => "N",
+            "S" => "E",
+            "W" => "S"
+        }
+
+        calculated_future_direction = future_directions[@current_direction]
+        future_direction = calculated_future_direction
+        @current_direction = future_direction
+    end
+
+    def move
+        return
+    end 
 end
