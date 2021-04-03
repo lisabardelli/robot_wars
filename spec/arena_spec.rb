@@ -18,4 +18,15 @@ describe 'Arena' do
   it 'returns an error if the input has invalid value' do
     expect { Arena.new('5 invalid') }.to raise_error 'Invalid location'
   end
+
+  it 'returns an error if the location x is outside the range' do
+    arena = Arena.new('5 5')
+    location = Location.new(7, 2)
+    expect(arena.is_a_valid_location?(location)).to be false
+  end
+  it 'returns an error if the location y is outside the range' do
+    arena = Arena.new('5 5')
+    location = Location.new(2, 7)
+    expect(arena.is_a_valid_location?(location)).to be false
+  end
 end

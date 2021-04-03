@@ -8,6 +8,16 @@ class Arena
     @bottom_left_corner = Location.new(0, 0)
   end
 
+  def is_a_valid_location?(location)
+    if location.x > @top_right_corner.x
+      false
+    elsif location.y > @top_right_corner.y
+      false
+    else
+      true
+    end
+  end
+
   private
 
   def is_input_a_string?(input)

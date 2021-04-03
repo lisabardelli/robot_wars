@@ -24,13 +24,13 @@ def build_arena
   arena
 end
 
-def build_robot
+def build_robot(arena)
     robot_position_created = false
     until robot_position_created
     puts 'Please enter the coordinates and the direction of the position of the Robot'
     input_robot_position = gets.chomp
     begin
-        robot = Robot.new(input_robot_position)
+        robot = Robot.new(input_robot_position, arena)
         robot_position_created = true
     rescue StandardError => e
         puts e
@@ -40,9 +40,9 @@ def build_robot
 end 
 
 
-print_header
-arena = build_arena
-robot = build_robot
+print_header()
+arena = build_arena()
+robot = build_robot(arena)
 puts
 puts "ARENA COORDINATES: (#{arena.bottom_left_corner.x};#{arena.bottom_left_corner.y})-(#{arena.top_right_corner.x};#{arena.top_right_corner.y})"
 puts "ROBOT: (#{robot.current_location.x} #{robot.current_location.y} #{robot.current_direction})"
