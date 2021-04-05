@@ -50,9 +50,19 @@ bundle install
 rspec
 ```
 
-### Planning and implementation
+### **Tech Summary**
 
-#### Friday 2nd April
+| Technology    | Use               |
+| ------------- | ----------------- |
+| Ruby          | Language          |
+| RSpec         | Testing Framework |
+| RuboCop       | Linting           |
+| SimpleCov     | Test coverage     |
+
+
+## Planning and implementation
+
+### Friday 2nd April
 - Understanding of the game
 - Playing with the game
 - Planning:
@@ -62,7 +72,7 @@ rspec
 4. Introducing the second robot
 
 
-#### Saturday 3rd April
+### Saturday 3rd April
 
 #### Implementation of point 1 (Identification of classes):
 1. Arena is the grid where robots can move 
@@ -91,7 +101,7 @@ instruction:
 - How to move N, S, W, E (change x and y)
 
 
-#### Monday 4th April
+### Monday 4th April
 
 #### Implementation of point 4 (Introducing the second robot):
 
@@ -103,13 +113,13 @@ instruction:
 2. Once second robot moves, it reaches the location where the first robot is
 
 
-#### Assumptions
+### Assumptions
 
 1. Robot cannot move if it reaches the border of the Arena
 2. Robot cannot move if position has already been taken by another robot
 3. The arena can only have non-negative (x >= 0 and y>=0) coordinates
 
 
-#### Scratch of game/planning 
+### Scratch of game/planning 
 ![Game](./images/planning1.jpeg)
 ![Planning](./images/planning2.jpeg)
