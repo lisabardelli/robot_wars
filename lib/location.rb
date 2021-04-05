@@ -9,6 +9,6 @@ class Location
   end
 
   def check_value(value)
-    raise 'Negative value' if value < 0
+    raise 'Negative value' if value.negative?
   end
 end

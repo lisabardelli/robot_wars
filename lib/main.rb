@@ -41,10 +41,10 @@ end
 
 print_header
 arena = build_arena
-puts "ROBOT 1"
+puts 'ROBOT 1'
 robot1 = build_robot(arena)
 puts
-puts "ROBOT 2"
+puts 'ROBOT 2'
 robot2 = build_robot(arena)
 puts
 puts "ARENA COORDINATES: (#{arena.bottom_left_corner.x};#{arena.bottom_left_corner.y})-(#{arena.top_right_corner.x};#{arena.top_right_corner.y})"

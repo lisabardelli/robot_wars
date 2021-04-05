@@ -14,7 +14,7 @@ class Robot
 
   private
 
-  def is_a_valid_direction?(direction)
+  def a_valid_direction?(direction)
     valid_directions = Set['N', 'E', 'S', 'W']
     valid_directions.include?(direction.capitalize)
   end
@@ -24,13 +24,13 @@ class Robot
 
     x = initial_robot_position_array[0]
     y = initial_robot_position_array[1]
-    raise 'Invalid value' unless x.is_a_non_negative_integer?
-    raise 'Invalid value' unless y.is_a_non_negative_integer?
+    raise 'Invalid value' unless x.a_non_negative_integer?
+    raise 'Invalid value' unless y.a_non_negative_integer?
 
     @current_location = Location.new(x.to_i, y.to_i)
-    raise 'Invalid location' unless @arena.is_a_valid_location?(@current_location)
+    raise 'Invalid location' unless @arena.a_valid_location?(@current_location)
 
-    raise 'Invalid direction' unless is_a_valid_direction?(initial_robot_position_array[2])
+    raise 'Invalid direction' unless a_valid_direction?(initial_robot_position_array[2])
 
     @current_direction = initial_robot_position_array[2].capitalize
   end
@@ -106,28 +106,28 @@ class Robot
       end
     end
 
-    if @arena.is_a_valid_location?(future_location)
-        @arena.delete_occupied_location(@current_location)
-        @arena.add_occupied_location(future_location)
-        @current_location = future_location
+    if @arena.a_valid_location?(future_location)
+      @arena.delete_occupied_location(@current_location)
+      @arena.add_occupied_location(future_location)
+      @current_location = future_location
     else
       puts 'The robot did not move'
     end
   end
 
   def increase_y
-    future_location = Location.new(@current_location.x, @current_location.y + 1)
+    Location.new(@current_location.x, @current_location.y + 1)
   end
 
   def increase_x
-    future_location = Location.new(@current_location.x + 1, @current_location.y)
+    Location.new(@current_location.x + 1, @current_location.y)
   end
 
   def decrease_y
-    future_location = Location.new(@current_location.x, @current_location.y - 1)
+    Location.new(@current_location.x, @current_location.y - 1)
   end
 
   def decrease_x
-    future_location = Location.new(@current_location.x - 1, @current_location.y)
+    Location.new(@current_location.x - 1, @current_location.y)
   end
 end
