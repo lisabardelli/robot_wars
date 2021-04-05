@@ -64,13 +64,13 @@ rspec
 
 #### Saturday 3rd April
 
-##### Implementation of point 1 (Identification of classes):
+#### Implementation of point 1 (Identification of classes):
 1. Arena is the grid where robots can move 
 2. Location is equal to a square of the grid
 3. String class has been created to evaluate if a string is a non negative integer
 4. Robot class is the robot with location and direction attributes and methods to move/rotate
 
-##### Implementation of point 2 (Thinking of how to validate the input entered by the user in the terminal):
+#### Implementation of point 2 (Thinking of how to validate the input entered by the user in the terminal):
 - Arena.new(top_right_corner, occupied_locations = [])
     1. is top_right_corner integer?
     2. is top_right_corner positive?
@@ -85,7 +85,7 @@ initial_position:
 instruction:
  1. is initial_direction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
 
-##### Implementation of point 3 (Thinking of how to move and rotate the robot):
+#### Implementation of point 3 (Thinking of how to move and rotate the robot):
 - How to rotate right (change directions)
 - How to rotate left (change directions)
 - How to move N, S, W, E (change x and y)
@@ -93,7 +93,7 @@ instruction:
 
 #### Monday 4th April
 
-##### Implementation of point 4 (Introducing the second robot):
+#### Implementation of point 4 (Introducing the second robot):
 
 - Add an array to save the occupied location by a robot 
 - Save the current position of the robot into the array
@@ -111,5 +111,5 @@ instruction:
 
 
 #### Scratch of game/planning 
-![Game]https://imgbox.com/nplVPZ4r)
-![Planning](https://imgbox.com/4qd3WRrz)
+![Game](https://github.com/lisabardelli/images/planning1.jpeg)
+![Planning](https://github.com/lisabardelli/images/planning2.jpeg)
