@@ -28,7 +28,7 @@ class Robot
     raise 'Invalid value' unless y.is_a_non_negative_integer?
 
     @current_location = Location.new(x.to_i, y.to_i)
-    raise 'Invalid location (outside the arena)' unless @arena.is_a_valid_location?(@current_location)
+    raise 'Invalid location' unless @arena.is_a_valid_location?(@current_location)
 
     raise 'Invalid direction' unless is_a_valid_direction?(initial_robot_position_array[2])
 
@@ -107,7 +107,9 @@ class Robot
     end
 
     if @arena.is_a_valid_location?(future_location)
-      @current_location = future_location
+        @arena.delete_occupied_location(@current_location)
+        @arena.add_occupied_location(future_location)
+        @current_location = future_location
     else
       puts 'The robot did not move'
     end

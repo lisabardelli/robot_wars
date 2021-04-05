@@ -3,17 +3,34 @@ require_relative './string'
 class Arena
   attr_reader :top_right_corner, :bottom_left_corner
 
-  def initialize(top_right_corner)
+  def initialize(top_right_corner, occupied_locations = Array.new)
+    @occupied_locations = occupied_locations
     @top_right_corner = validate_input(top_right_corner)
     @bottom_left_corner = Location.new(0, 0)
   end
 
   def is_a_valid_location?(location)
-    if location.x > @top_right_corner.x
+    if location.x > top_right_corner.x
+      false
+    elsif location.y > top_right_corner.y
+      false
+    elsif is_an_occupied_location?(location)
       false
     else
-      !(location.y > @top_right_corner.y)
+      true
     end
+end
+
+  def add_occupied_location(current_position)
+    if is_a_valid_location?(current_position)
+      @occupied_locations << current_position
+    else
+      raise 'Invalid location'
+    end
+  end
+
+  def delete_occupied_location(current_position)
+    @occupied_locations.delete(current_position)
   end
 
   private
@@ -44,5 +61,14 @@ class Arena
       puts e
       raise 'Invalid location'
     end
+  end
+
+  def is_an_occupied_location?(location)
+    @occupied_locations.each do |occupied_location|
+        if (occupied_location.x == location.x) && (occupied_location.y == location.y)
+          return true
+        end
+    end
+    false
   end
 end

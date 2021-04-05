@@ -16,10 +16,10 @@ describe 'Robot' do
     expect { Robot.new('1 2 Lorem', @arena) }.to raise_error 'Invalid direction'
   end
   it 'returns an error if inputs are outside the arena' do
-    expect { Robot.new('8 9 N', @arena) }.to raise_error 'Invalid location (outside the arena)'
+    expect { Robot.new('8 9 N', @arena) }.to raise_error 'Invalid location'
   end
 
-  it 'returns an error if instruction are not valida' do
+  it 'returns an error if instruction are not valid' do
     expect { Robot.new('1 2 N', 'LOREM', @arena) }.to raise_error 'Invalid instruction'
   end
 
@@ -55,10 +55,46 @@ describe 'Robot' do
     expect(robot.current_direction).to eq 'E'
   end
 
-  it 'did not move because move/rotate not valid' do
-    robot = Robot.new('1 1 W', 'MMMMMMMMMMMM', @arena)
+  it 'moves until it reaches the bottom border' do
+    robot = Robot.new('1 1 S', 'MMMM', @arena)
+    expect(robot.current_location.x).to eq 1
+    expect(robot.current_location.y).to eq 0
+    expect(robot.current_direction).to eq 'S'
+  end
+
+  it 'moves until it reaches the left border' do
+    robot = Robot.new('1 1 W', 'MM', @arena)
     expect(robot.current_location.x).to eq 0
     expect(robot.current_location.y).to eq 1
     expect(robot.current_direction).to eq 'W'
+  end
+
+  it 'moves 2 robots' do
+    robot1 = Robot.new('1 2 N', 'LMLMLMLMM', @arena)
+    robot2 = Robot.new('3 3 E', 'MMRMMRMRRM', @arena)
+    expect(robot1.current_location.x).to eq 1
+    expect(robot1.current_location.y).to eq 3
+    expect(robot1.current_direction).to eq 'N'
+    expect(robot2.current_location.x).to eq 5
+    expect(robot2.current_location.y).to eq 1
+    expect(robot2.current_direction).to eq 'E'
+  end
+  it 'returns an error if robot 2 starts from a the location that is already occupied' do
+    robot1 = Robot.new('1 2 N', 'LM', @arena)
+    expect(robot1.current_location.x).to eq 0
+    expect(robot1.current_location.y).to eq 2
+    expect(robot1.current_direction).to eq 'W'
+    expect { Robot.new('0 2 E', 'MM', @arena) }.to raise_error 'Invalid location'
+  end
+
+  it 'robot 2 moves only if the location is not occupied' do
+    robot1 = Robot.new('0 0 N', 'MRM', @arena)
+    robot2 = Robot.new('2 0 N', 'MLM', @arena)
+    expect(robot1.current_location.x).to eq 1
+    expect(robot1.current_location.y).to eq 1
+    expect(robot1.current_direction).to eq 'E'
+    expect(robot2.current_location.x).to eq 2
+    expect(robot2.current_location.y).to eq 1
+    expect(robot2.current_direction).to eq 'W'
   end
 end
