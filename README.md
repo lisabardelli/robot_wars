@@ -111,5 +111,5 @@ instruction:
 
 
 #### Scratch of game/planning 
-![Game](https://github.com/lisabardelli/images/planning1.jpeg)
-![Planning](https://github.com/lisabardelli/images/planning2.jpeg)
+![Game](./images/planning1.jpeg)
+![Planning](./images/planning2.jpeg)
