@@ -93,7 +93,7 @@ initial_position:
 2. is initial_direction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
 
 instruction:
- 1. is initial_direction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
+ 1. is instruction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
 
 #### Implementation of point 3 (Thinking of how to move and rotate the robot):
 - How to rotate right (change directions)
@@ -109,6 +109,7 @@ instruction:
 - Save the current position of the robot into the array
 - Delete the position from the array once the robot moves
 
+Second robot's moves to handle:
 1. Second robot starts from the location where the first robot is
 2. Once second robot moves, it reaches the location where the first robot is
 
