@@ -93,7 +93,7 @@ initial_position:
 2. is initial_direction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
 
 instruction:
- 1. is instruction a valid direction? is within ['W', 'E', 'S', 'N']? is capitalized?
+ 1. is instruction valid? is within ['L', 'M', 'R']?
 
 #### Implementation of point 3 (Thinking of how to move and rotate the robot):
 - How to rotate right (change directions)
