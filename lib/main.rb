@@ -48,5 +48,5 @@ puts 'ROBOT 2'
 robot2 = build_robot(arena)
 puts
 puts "ARENA COORDINATES: (#{arena.bottom_left_corner.x};#{arena.bottom_left_corner.y})-(#{arena.top_right_corner.x};#{arena.top_right_corner.y})"
-puts "ROBOT: (#{robot1.current_location.x} #{robot1.current_location.y} #{robot1.current_direction})"
-puts "ROBOT: (#{robot2.current_location.x} #{robot2.current_location.y} #{robot2.current_direction})"
+puts "ROBOT 1: (#{robot1.current_location.x} #{robot1.current_location.y} #{robot1.current_direction})"
+puts "ROBOT 2: (#{robot2.current_location.x} #{robot2.current_location.y} #{robot2.current_direction})"
