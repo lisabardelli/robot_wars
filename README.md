@@ -101,7 +101,7 @@ instruction:
 - How to move N, S, W, E (change x and y)
 
 
-### Monday 4th April
+### Monday 5th April
 
 #### Implementation of point 4 (Introducing the second robot):
 
