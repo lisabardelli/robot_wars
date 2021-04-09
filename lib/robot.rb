@@ -36,7 +36,7 @@ class Robot
   end
 
   def calculate_final_position(instructions)
-    valid_instruction_set = Set['L', 'M', 'R']
+    valid_instruction_set = Set['L', 'M', 'R', 'B']
     instruction_array = instructions.split('')
     instruction_array.each do |instruction|
       instruction = instruction.capitalize
@@ -49,7 +49,9 @@ class Robot
   def process_instruction(instruction)
     case instruction
     when 'M'
-      move
+      move_forward
+    when 'B'
+      move_back
     when 'L'
       rotate_left
     when 'R'
@@ -84,9 +86,10 @@ class Robot
     @current_direction = future_direction
   end
 
-  def move
+  def move_forward
     case @current_direction
     when 'N'
+    
       future_location = increase_y
     when 'E'
       future_location = increase_x
@@ -114,6 +117,39 @@ class Robot
       puts 'The robot did not move'
     end
   end
+
+  def move_back
+    case @current_direction
+    when 'S'
+    
+      future_location = increase_y
+    when 'W'
+      future_location = increase_x
+    when 'N'
+      begin
+        future_location = decrease_y
+      rescue StandardError
+        puts 'The robot did not move because next to the bottom border'
+        return
+      end
+    when 'E'
+      begin
+        future_location = decrease_x
+      rescue StandardError
+        puts 'The robot did not move because next to the left border'
+        return
+      end
+    end
+
+    if @arena.a_valid_location?(future_location)
+      @arena.delete_occupied_location(@current_location)
+      @arena.add_occupied_location(future_location)
+      @current_location = future_location
+    else
+      puts 'The robot did not move'
+    end
+  end
+
 
   def increase_y
     Location.new(@current_location.x, @current_location.y + 1)

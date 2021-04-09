@@ -97,4 +97,19 @@ describe 'Robot' do
     expect(robot2.current_location.y).to eq 1
     expect(robot2.current_direction).to eq 'W'
   end
+
+  it 'moves B' do
+    robot = Robot.new('1 2 N', 'B', @arena)
+    expect(robot.current_location.x).to eq 1
+    expect(robot.current_location.y).to eq 1
+    expect(robot.current_direction).to eq 'N'
+  end
+
+  it 'moves B' do
+    robot = Robot.new('3 3 E', 'B', @arena)
+    expect(robot.current_location.x).to eq 2
+    expect(robot.current_location.y).to eq 3
+    expect(robot.current_direction).to eq 'E'
+  end
+
 end
